@@ -4,6 +4,7 @@ import * as googleTTS from 'google-tts-api'
 // must have this in html head for audio tag to work:
 // <meta name="referrer" content="no-referrer" />
 import styled from 'styled-components'
+import { Box } from './Box'
 
 export class WordAssoc extends React.Component {
   state = {
@@ -115,28 +116,11 @@ export class WordAssoc extends React.Component {
               </Draggable>
             ))}
           </ItemsContainer>
-          <Box id="main-box" className="box drop-target">
-            <div style={{ marginBottom: '50px' }}></div>
-            <div style={{ textAlign: 'center' }}>
-              <Image src={answerImageUrl} alt={answer} />
-              {answerAudioUrl && (
-                <Figure>
-                  <figcaption style={{ marginBottom: '10px' }}>
-                    Answer audio:
-                  </figcaption>
-                  <audio
-                    controls
-                    type="audio/mpeg"
-                    src={answerAudioUrl}
-                    style={{ zIndex: 1, position: 'relative' }}
-                  >
-                    Your browser does not support the
-                    <code>audio</code> element.
-                  </audio>
-                </Figure>
-              )}
-            </div>
-          </Box>
+          <Box
+            answer={answer}
+            answerAudioUrl={answerAudioUrl}
+            answerImageUrl={answerImageUrl}
+          />
         </Container>
         <SmallText>* Red border means your answer is incorrect.</SmallText>
         <SmallText>** Green border means your answer is correct.</SmallText>
@@ -182,32 +166,6 @@ const Item = styled.div`
 
   @media (max-width: 750px) {
     width: 80%;
-  }
-`
-
-const Box = styled.div`
-  width: 500px;
-  height: 400px;
-  border: 2px solid #6e6e6e;
-  margin: auto;
-  margin-top: 40px;
-  border-radius: 8px;
-  background: #fffff2;
-  padding: 8px;
-
-  @media (max-width: 750px) {
-    width: 90%;
-  }
-`
-
-const Image = styled.img`
-  height: 200px;
-  margin-bottom: 10px;
-`
-
-const Figure = styled.figure`
-  @media (max-width: 750px) {
-    margin: 0;
   }
 `
 
