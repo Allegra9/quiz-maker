@@ -8,7 +8,7 @@ import styled from 'styled-components'
 export class WordAssoc extends React.Component {
   state = {
     activeElement: null,
-    options: ['carrot', 'zucchini', 'potato', 'neko'],
+    options: this.props.options,
     positions: [],
     deltaPosition: {
       x: 0,

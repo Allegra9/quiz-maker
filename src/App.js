@@ -5,10 +5,17 @@ import { WordAssoc } from './components/WordAssoc'
 const catImageUrl =
   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/800px-Cat_November_2010-1a.jpg'
 
+const options = ['carrot', 'zucchini', 'potato', 'neko']
+const answer = 'neko'
+
 const App = () => {
   return (
     <Container>
-      <WordAssoc answer="neko" answerImageUrl={catImageUrl} />
+      <WordAssoc
+        options={options}
+        answer={answer}
+        answerImageUrl={catImageUrl}
+      />
     </Container>
   )
 }
